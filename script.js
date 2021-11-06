@@ -26,6 +26,7 @@ const prepareDOMElements = () =>{
 
 const prepareDOMEvents = ()=>{
     addBtn.addEventListener("click", addNewTodo)
+    ulList.addEventListener("click", checkClick)
 }
 
 const addNewTodo = ()=>{
@@ -73,6 +74,14 @@ const createToolsArea = ()=>{
     // <button class="complete"><i class="fas fa-check"></i></button>
     // <button class="edit">EDIT</button>
     // <button class="delete"><i class="fas fa-times"></i></button>
+}
+
+const checkClick = e =>{
+    if(e.target.matches('.complete')){
+        e.target.closest("li").classList.toggle("completed")
+        e.target.classList.toggle('completed')
+    } else if(e.target.matches('.edit')){console.log('edit')
+}   else if (e.target.matches(".delete")){console.log("delete")}
 }
 
 
