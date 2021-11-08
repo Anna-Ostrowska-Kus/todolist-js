@@ -95,8 +95,11 @@ const checkClick = e =>{
     if(e.target.matches('.complete')){
         e.target.closest("li").classList.toggle("completed")
         e.target.classList.toggle('completed')
-    } else if(e.target.matches('.edit')){editTodo(e)
-}   else if (e.target.matches(".delete")){console.log("delete")}
+    } else if(e.target.matches('.edit')){
+        editTodo(e)
+    } else if (e.target.matches(".delete")){
+        deleteTodo(e)
+    }
 }
 
 const editTodo = (e) =>{
@@ -118,6 +121,14 @@ const changeTodoText = ()=>{
     } else{
         popupInfo.textContent ="Podaj treść zadania..."
         
+    }
+}
+
+const deleteTodo = (e)=> {
+    e.target.closest("li").remove()
+    const allTodos = ulList.querySelectorAll("li")
+    if (allTodos.length === 0){
+        errorInfo.textContent = "Brak zadań na liście"
     }
 }
 
